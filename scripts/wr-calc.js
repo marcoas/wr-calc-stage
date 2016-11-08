@@ -154,6 +154,16 @@ loadFixture = function(  ) {
                 if( e.events[0].rankingsWeight == 2 ) {
                 	$('#fixtures TR:last .isRwc').attr('checked', true);
                 }
+
+                try {
+	                if( e.venue.country != e.teams[0].name ) {
+	                	$('#fixtures TR:last .noHome').attr('checked', true);
+	                }
+                } catch( err ) {
+                	// no VENUE block (surelly)
+                }
+
+
             }
 
         });
